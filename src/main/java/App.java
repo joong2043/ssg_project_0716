@@ -23,25 +23,40 @@ public class App {
 
             switch (cmd){
                 case "등록":
-                    lastIndex++;
-                    System.out.printf("명언 : ");
-                    String content = sc.nextLine().trim();
-                    System.out.printf("작가 : ");
-                    String author = sc.nextLine().trim();
-                    WiseSaying wiseSaying = new WiseSaying(lastIndex,content,author);
-
-                    wiseSayings.add(wiseSaying);
-
+                    write();
                     break;
 
                 case "목록":
-                    Stream<WiseSaying> wiseSayingStream = wiseSayings.stream();
-                    wiseSayingStream.forEach(element -> System.out.print(element));
+                    list();
                     break;
+
+                case "삭제":
+                    // 삭제?id=1
+                    remove();
 
                 case "종료":
                     break outer;
             }
         }
+    }
+
+    void write(){
+        lastIndex++;
+        System.out.printf("명언 : ");
+        String content = sc.nextLine().trim();
+        System.out.printf("작가 : ");
+        String author = sc.nextLine().trim();
+        WiseSaying wiseSaying = new WiseSaying(lastIndex,content,author);
+
+        wiseSayings.add(wiseSaying);
+    }
+
+    void list(){
+        Stream<WiseSaying> wiseSayingStream = wiseSayings.stream();
+        wiseSayingStream.forEach(element -> System.out.print(element));
+    }
+
+    void remove(){
+
     }
 }
