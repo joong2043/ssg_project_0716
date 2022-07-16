@@ -20,6 +20,8 @@ public class App {
         while(true){
             System.out.printf("명령) ");
             String cmd = sc.nextLine().trim();
+            Rq rq = new Rq();
+            String path = rq.getIntParam(cmd);
 
             switch (cmd){
                 case "등록":
