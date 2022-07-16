@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class App {
     Scanner sc;
@@ -31,6 +32,11 @@ public class App {
 
                     wiseSayings.add(wiseSaying);
 
+                    break;
+
+                case "목록":
+                    Stream<WiseSaying> wiseSayingStream = wiseSayings.stream();
+                    wiseSayingStream.forEach(element -> System.out.print(element));
                     break;
 
                 case "종료":
